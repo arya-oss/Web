@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.ico" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/todc-bootstrap.min.css" type="text/css"/>
+</head>
+<body class="container-fluid">
+	<div class="jumbotron">
+		<h3>Dynamic Webpages.</h3>	
+	</div>
+	<div class="row">
+	<div class="col-md-5">
+		<form class="form-horizontal" id="addForm">
+			<div class="form-group">
+				<div class="col-md-6">
+					<label class="control-label" for="first_name">First Name <i class='glyphicon glyphicon-font'></i></label>
+					<input type="text" class="form-control" name="first_name" placeholder="First Name" required/>
+				</div>
+				<div class="col-md-6">
+					<label class="control-label" for="last_name">Last Name <i class='glyphicon glyphicon-font'></i></label>
+					<input type="text" class="form-control" name="last_name" placeholder="Last Name" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label" for="email">Roll No. <i class='glyphicon glyphicon-education'></i></label>
+					<input type="numeric" class="form-control" name="rollNo" placeholder="Roll No." required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label" for="email">Email ID <i class='glyphicon glyphicon-envelope'></i></label>
+					<input type="email" class="form-control" name="email" placeholder="Email" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label" for="phone">Phone <i class='glyphicon glyphicon-phone'></i></label>
+					<input type="tel" class="form-control" name="phone" placeholder="Phone No." required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-4">
+				    <button class="btn btn-success btn-block" type="submit">Add <i class='glyphicon glyphicon-plus-sign'></i></button>
+				</div>
+				<div class="col-md-4">
+				    <button class="btn btn-warning btn-block" type="reset">Reset <i class='glyphicon glyphicon-minus-sign'></i></button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-7">
+		<table class="table table-striped table-hover" id="tab01">
+			<tr><th>First Name</th><th>Last Name</th><th>Roll No.</th><th>Phone</th><th>Email</th></tr>
+			<tr><td>Rajmani</td><td>Arya</td><td>137146</td><td>9494406475</td><td>rajmani1995@gmail.com</td></tr>
+			<tr><td>Vinay</td><td>Bhatti</td><td>137164</td><td>9701034565</td><td>vinay992002@yahoo.com</td></tr>
+			<tr><td>Ravi</td><td>Chanchlani</td><td>137148</td><td>8332808695</td><td>ravichanchlani47@gmail.com</td></tr>
+			<tr><td>Prashant</td><td>Mishra</td><td>137144</td><td>9059521752</td><td>mishraprashant543@gmail.com</td></tr>
+			<tr><td>Mrigank</td><td>Kaushik</td><td>137136</td><td>8801237992</td><td>mriganknitw@gmail.com</td></tr>
+		</table>		
+	</div>
+	</div>
+	<!-- Scripts -->
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#addForm').submit(function(e){
+				var v = $(this).serializeArray();
+				var user="<tr>";
+				$.each(v, function(i, field){
+					user += "<td>"+ field.value +"</td>"; 
+				});
+				user += "</tr>";
+				$('#tab01').append(user);
+					return false;
+			});
+		});
+	</script>
+</body>
+</html>
